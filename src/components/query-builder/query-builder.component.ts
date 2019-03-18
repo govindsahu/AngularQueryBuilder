@@ -73,6 +73,7 @@ export const VALIDATOR: any = {
   providers: [CONTROL_VALUE_ACCESSOR, VALIDATOR]
 })
 export class QueryBuilderComponent implements OnInit, OnChanges, ControlValueAccessor, Validator {
+
   public fields: Field[];
   public rules: RuleSet;
   public filterFields: Field[];
@@ -392,6 +393,19 @@ export class QueryBuilderComponent implements OnInit, OnChanges, ControlValueAcc
     }
   }
 
+
+  RulesCondition(value: string): void {
+    if (value === 'addRow') {
+      this.addRule();
+
+    } else if (value === 'addGroup') {
+      this.addRuleSet();
+    }
+
+
+  }
+
+
   addRule(parent?: RuleSet): void {
     if (this.disabled) {
       return;
@@ -402,12 +416,6 @@ export class QueryBuilderComponent implements OnInit, OnChanges, ControlValueAcc
       this.config.addRule(parent);
     } else {
       const field = this.fields[0];
-      /*parent = {
-        condition: 'abc',
-        rules: [
-          { field: 'condition1', operator: '+', value: 0 },
-        {field: 'condition1', operator: '-', value: 0 }]
-      };*/
       parent.rules = parent.rules.concat([{
         field: field.value,
         operator: this.getDefaultOperator(field),
@@ -493,6 +501,7 @@ export class QueryBuilderComponent implements OnInit, OnChanges, ControlValueAcc
   }
 
   changeCondition(value: string): void {
+    console.log(value);
     if (this.disabled) {
       return;
     }

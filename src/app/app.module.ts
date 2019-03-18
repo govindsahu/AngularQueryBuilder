@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-// import { QueryBuilderModule } from 'angular2-query-builder';
+
 import {
   QueryBuilderComponent,
   QueryInputDirective,
