@@ -24,7 +24,4 @@ export class AppComponent {
       prntAllMassPrnt: { name: 'PrntAllMassPrnt', type: 'string' }
     }
   };
-
-  
-
 }

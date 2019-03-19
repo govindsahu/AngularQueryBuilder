@@ -168,7 +168,7 @@
         <div [ngClass]="getClassNames('buttonGroup', 'leftAlign')">
           <div class="query-builder-action float-left">
             <select style="font-family: 'FontAwesome', Arial;" class="selectpicker" #ruleOption
-            (change)="RulesCondition(ruleOption.value)">
+            (change)="RulesCondition(ruleOption.value)" [(ngModel)]='nrSelect'>
             <option value="add">&#xf067; &nbsp; Add </option>
             <option value="addRow" [ngClass]="getClassNames('button')" [disabled]=disabled>&#xf067; &nbsp; Add row
             </option>
@@ -189,18 +189,8 @@
             <i [ngClass]="getClassNames('removeIcon')"></i>
             </button>
           </ng-container>
-<<<<<<< Updated upstream
-        </ul>
-
-     
-
-
-      </div>
-
-=======
         </div>
       </ng-template>
->>>>>>> Stashed changes
     </div>
     <!-- end of logical operators and options-->
   </li>
