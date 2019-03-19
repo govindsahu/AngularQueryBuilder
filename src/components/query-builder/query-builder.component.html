@@ -32,6 +32,12 @@
       <ng-container
         *ngIf="{ruleset: !!rule.rules, invalid: !config.allowEmptyRulesets && rule.rules && rule.rules.length === 0} as local">
         <li [ngClass]="getQueryItemClassName(local)">
+            <div class="rule-check float-left">
+                <div class="form-group">
+                  <input type="checkbox" class="form-check-input">
+                  <label>&nbsp;</label>
+                </div>
+              </div>
           <ng-container *ngIf="!local.ruleset">
             <ng-container *ngIf="getRemoveButtonTemplate() as template; else defaultRemoveButton">
               <div [ngClass]="getClassNames('buttonGroup', 'rightAlign')">
@@ -189,18 +195,8 @@
             <i [ngClass]="getClassNames('removeIcon')"></i>
             </button>
           </ng-container>
-<<<<<<< Updated upstream
-        </ul>
-
-     
-
-
-      </div>
-
-=======
         </div>
       </ng-template>
->>>>>>> Stashed changes
     </div>
     <!-- end of logical operators and options-->
   </li>
