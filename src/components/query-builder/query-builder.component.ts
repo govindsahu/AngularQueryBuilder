@@ -7,15 +7,17 @@ import {
   Validator
 } from '@angular/forms';
 
-import { QueryOperatorDirective } from './query-operator.directive';
-import { QueryFieldDirective } from './query-field.directive';
-import { QueryEntityDirective } from './query-entity.directive';
-import { QuerySwitchGroupDirective } from './query-switch-group.directive';
-import { QueryButtonGroupDirective } from './query-button-group.directive';
-import { QueryInputDirective } from './query-input.directive';
-import { QueryRemoveButtonDirective } from './query-remove-button.directive';
-import { QueryEmptyWarningDirective } from './query-empty-warning.directive';
-import { QueryArrowIconDirective } from './query-arrow-icon.directive';
+import {
+  QueryOperatorDirective,
+  QueryFieldDirective,
+  QueryEntityDirective,
+  QuerySwitchGroupDirective,
+  QueryButtonGroupDirective ,
+  QueryInputDirective,
+  QueryRemoveButtonDirective,
+  QueryEmptyWarningDirective,
+  QueryArrowIconDirective, } from './ep-query.directive';
+
 import {
   ButtonGroupContext,
   Entity,
@@ -28,13 +30,15 @@ import {
   OperatorContext,
   Option,
   QueryBuilderClassNames,
-  QueryBuilderConfig,
   RemoveButtonContext,
   ArrowIconContext,
   Rule,
   RuleSet,
   EmptyWarningContext,
 } from './query-builder.interfaces';
+
+import { QueryBuilderConfig } from './query-builderconfig.directive';
+
 import {
   ChangeDetectorRef,
   Component,
@@ -202,7 +206,7 @@ export class QueryBuilderComponent implements OnInit, OnChanges, ControlValueAcc
 */
   }
 
- 
+
 
   // ----------OnChanges Implementation----------
 

@@ -1,4 +1,5 @@
+import { QueryBuilderConfig } from './components/query-builder/query-builderconfig.directive';
 export { } from './services';
-export { QueryBuilderComponent } from './components';
-export { Field, Option, QueryBuilderConfig, Rule, RuleSet, QueryBuilderClassNames } from './components';
+export { QueryBuilderComponent } from 'src/components/query-builder/query-builder.component';
+export { Field, Option, Rule, RuleSet, QueryBuilderClassNames } from 'src/components/query-builder/query-builder.interfaces';
 export { QueryBuilderModule } from './query-builder.module';

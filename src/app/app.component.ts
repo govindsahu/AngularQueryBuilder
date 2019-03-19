@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { QueryBuilderConfig } from 'src/components/query-builder';
+import { QueryBuilderConfig } from 'src/components/query-builder/query-builderconfig.directive';
 
 
 @Component({
@@ -24,7 +24,4 @@ export class AppComponent {
       prntAllMassPrnt: { name: 'PrntAllMassPrnt', type: 'string' }
     }
   };
-
-  
-
 }

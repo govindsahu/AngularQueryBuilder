@@ -4,9 +4,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { QueryBuilderComponent } from 'src/components/query-builder/query-builder.component';
 
 import {
-  QueryBuilderComponent,
   QueryInputDirective,
   QueryFieldDirective,
   QueryEntityDirective,
@@ -16,7 +16,7 @@ import {
   QueryRemoveButtonDirective,
   QueryEmptyWarningDirective,
   QueryArrowIconDirective
-} from '../components';
+} from 'src/components/query-builder/ep-query.directive';
 
 @NgModule({
   declarations: [
