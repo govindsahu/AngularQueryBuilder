@@ -32,6 +32,12 @@
       <ng-container
         *ngIf="{ruleset: !!rule.rules, invalid: !config.allowEmptyRulesets && rule.rules && rule.rules.length === 0} as local">
         <li [ngClass]="getQueryItemClassName(local)">
+            <div class="rule-check float-left">
+                <div class="form-group">
+                  <input type="checkbox" class="form-check-input">
+                  <label>&nbsp;</label>
+                </div>
+              </div>
           <ng-container *ngIf="!local.ruleset">
             <ng-container *ngIf="getRemoveButtonTemplate() as template; else defaultRemoveButton">
               <div [ngClass]="getClassNames('buttonGroup', 'rightAlign')">
@@ -168,7 +174,7 @@
         <div [ngClass]="getClassNames('buttonGroup', 'leftAlign')">
           <div class="query-builder-action float-left">
             <select style="font-family: 'FontAwesome', Arial;" class="selectpicker" #ruleOption
-            (change)="RulesCondition(ruleOption.value)">
+            (change)="RulesCondition(ruleOption.value)" [(ngModel)]='nrSelect'>
             <option value="add">&#xf067; &nbsp; Add </option>
             <option value="addRow" [ngClass]="getClassNames('button')" [disabled]=disabled>&#xf067; &nbsp; Add row
             </option>
