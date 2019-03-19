@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, } from '@angular/forms';
+import { QueryBuilderComponent } from 'src/components/query-builder/query-builder.component';
+
 import {
-    QueryBuilderComponent,
     QueryInputDirective,
     QueryFieldDirective,
     QueryEntityDirective,
@@ -12,7 +13,7 @@ import {
     QueryRemoveButtonDirective,
     QueryEmptyWarningDirective,
     QueryArrowIconDirective
-} from './components';
+} from 'src/components/query-builder/ep-query.directive';
 
 @NgModule({
   imports: [
