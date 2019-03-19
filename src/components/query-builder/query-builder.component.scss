@@ -9,7 +9,8 @@
 
   .q-remove-icon {
     &::before {
-      content: '❌'
+      font-size: 35px;
+      content: '-';
     }
   }
 
@@ -139,7 +140,7 @@
 
   .q-invalid-ruleset {
     border: 1px solid rgba(179, 65, 93, 0.5) !important;
-    background: rgba(179, 65, 93, 0.1) !important;
+    background: rgba(248, 245, 246, 0.1) !important;
   }
 
   .q-empty-warning {

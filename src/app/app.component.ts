@@ -13,22 +13,18 @@ export class AppComponent {
   query = {
     condition: 'and',
     rules: [
-      {field: 'age', operator: '<=', value: 'Bob'},
-      {field: 'gender', operator: '>=', value: 'm'}
+      { field: 'agentTaskNum', operator: '<=', value: '0' },
+      { field: 'prntAllMassPrnt', operator: '=', value: 'true' }
     ]
   };
 
   config: QueryBuilderConfig = {
     fields: {
-      age: {name: 'Age', type: 'number'},
-      gender: {
-        name: 'Gender',
-        type: 'category',
-        options: [
-          {name: 'Male', value: 'm'},
-          {name: 'Female', value: 'f'}
-        ]
-      }
+      agentTaskNum: { name: 'AgentTaskNum', type: 'number' },
+      prntAllMassPrnt: { name: 'PrntAllMassPrnt', type: 'string' }
     }
   };
+
+  
+
 }

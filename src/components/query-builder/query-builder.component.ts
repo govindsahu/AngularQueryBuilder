@@ -6,6 +6,7 @@ import {
   ValidationErrors,
   Validator
 } from '@angular/forms';
+
 import { QueryOperatorDirective } from './query-operator.directive';
 import { QueryFieldDirective } from './query-field.directive';
 import { QueryEntityDirective } from './query-entity.directive';
@@ -48,8 +49,10 @@ import {
   SimpleChanges,
   TemplateRef,
   ViewChild,
-  ElementRef
+  ElementRef,
+  HostListener
 } from '@angular/core';
+
 
 export const CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
@@ -74,6 +77,21 @@ export const VALIDATOR: any = {
 })
 export class QueryBuilderComponent implements OnInit, OnChanges, ControlValueAccessor, Validator {
 
+  constructor(private changeDetectorRef: ChangeDetectorRef) { }
+
+  // ----------ControlValueAccessor Implementation----------
+
+  @Input()
+  get value(): RuleSet {
+    return this.data;
+  }
+  set value(value: RuleSet) {
+    // When component is initialized without a formControl, null is passed to value
+    this.data = value || { condition: 'and', rules: [] };
+    this.handleDataChange();
+  }
+
+  nrSelect = 'add';
   public fields: Field[];
   public rules: RuleSet;
   public filterFields: Field[];
@@ -126,7 +144,7 @@ export class QueryBuilderComponent implements OnInit, OnChanges, ControlValueAcc
 
   @Input() allowRuleset: boolean = true;
   @Input() allowCollapse: boolean = false;
-  @Input() emptyMessage: string = 'A ruleset cannot be empty. Please add a rule or remove it all together.';
+  @Input() emptyMessage: string = '';
   @Input() classNames: QueryBuilderClassNames;
   @Input() operatorMap: { [key: string]: string[] };
   @Input() parentValue: RuleSet;
@@ -166,8 +184,6 @@ export class QueryBuilderComponent implements OnInit, OnChanges, ControlValueAcc
   private removeButtonContextCache = new Map<Rule, RemoveButtonContext>();
   private buttonGroupContext: ButtonGroupContext;
 
-  constructor(private changeDetectorRef: ChangeDetectorRef) { }
-
   // ----------OnInit Implementation----------
 
   ngOnInit() {
@@ -185,6 +201,8 @@ export class QueryBuilderComponent implements OnInit, OnChanges, ControlValueAcc
     ];
 */
   }
+
+ 
 
   // ----------OnChanges Implementation----------
 
@@ -214,6 +232,11 @@ export class QueryBuilderComponent implements OnInit, OnChanges, ControlValueAcc
 
   // ----------Validator Implementation----------
 
+  @HostListener('mouseout') onMouseOut() {
+    this.nrSelect = 'add';
+  }
+
+
   validate(control: AbstractControl): ValidationErrors | null {
     const errors: { [key: string]: any } = {};
     const ruleErrorStore = [];
@@ -231,18 +254,6 @@ export class QueryBuilderComponent implements OnInit, OnChanges, ControlValueAcc
       hasErrors = true;
     }
     return hasErrors ? errors : null;
-  }
-
-  // ----------ControlValueAccessor Implementation----------
-
-  @Input()
-  get value(): RuleSet {
-    return this.data;
-  }
-  set value(value: RuleSet) {
-    // When component is initialized without a formControl, null is passed to value
-    this.data = value || { condition: 'and', rules: [] };
-    this.handleDataChange();
   }
 
   writeValue(obj: any): void {
@@ -798,5 +809,8 @@ export class QueryBuilderComponent implements OnInit, OnChanges, ControlValueAcc
     if (this.parentTouchedCallback) {
       this.parentTouchedCallback();
     }
+  }
+  private getJSONData(): void {
+
   }
 }

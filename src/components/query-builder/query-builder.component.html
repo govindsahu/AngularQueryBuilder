@@ -25,7 +25,7 @@
 
             <div class="query-builder-action">
               <select style="font-family: 'FontAwesome', Arial;" class="selectpicker" #ruleOption
-                (change)="RulesCondition(ruleOption.value)">
+                (click)="RulesCondition(ruleOption.value)" [(ngModel)]='nrSelect'>
                 <option value="add">&#xf067; &nbsp; Add </option>
                 <option value="addRow" [ngClass]="getClassNames('button')" [disabled]=disabled>&#xf067; &nbsp; Add row
                 </option>
@@ -211,7 +211,12 @@
             </ng-container>
           </ng-container>
         </ul>
+
+     
+
+
       </div>
+
     </div>
   </div>
 </div>
