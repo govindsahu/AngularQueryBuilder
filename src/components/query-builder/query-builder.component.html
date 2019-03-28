@@ -81,6 +81,7 @@
                 </ng-container>
                 <ng-template #defaultField>
                   <div [ngClass]="getClassNames('fieldControlSize')">
+                    <label>Field</label>
                     <select [ngClass]="getClassNames('fieldControl')" [(ngModel)]="rule.field"
                     (ngModelChange)="changeField($event, rule)" [disabled]="disabled">
                     <option *ngFor="let field of getFields(rule.entity)" [ngValue]="field.value">
@@ -94,6 +95,7 @@
                 </ng-container>
                 <ng-template #defaultOperator>
                   <div [ngClass]="getClassNames('operatorControlSize')">
+                    <label>Operation</label>
                     <select class="div-bg-filled" [ngClass]="getClassNames('operatorControl')" [(ngModel)]="rule.operator"
                     (ngModelChange)="changeOperator(rule)" [disabled]="disabled">
                     <option *ngFor="let operator of getOperators(rule.field)" [ngValue]="operator">
@@ -108,6 +110,7 @@
                 <ng-template #defaultInput>
                   <div [ngClass]="getClassNames('inputControlSize')"
                   [ngSwitch]="getInputType(rule.field, rule.operator)">
+                  <label>Filter Value</label>
                   <input class="div-bg-filled" [ngClass]="getClassNames('inputControl')" [(ngModel)]="rule.value"
                   (ngModelChange)="changeInput()" [disabled]="disabled" *ngSwitchCase="'string'" type="text">
                   <input class="div-bg-filled" [ngClass]="getClassNames('inputControl')" [(ngModel)]="rule.value"
